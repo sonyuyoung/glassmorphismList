@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    section {
+      font-family: "Noto Sans KR", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #0f222f;
+    }
+
+    ul {
+      position: relative;
+      transform-style: preserve-3d;
+      perspective: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: 0.5s;
+      gap: 30px;
+    }
+    /* 박스클릭하면 전체 갭*/
+    ul:hover {
+    }
+
+    ul li {
+      position: relative;
+      list-style: none;
+      width: 450px;
+      height: 100px;
+      padding: 15px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      transition: 0.5s;
+      box-shadow: 0 -15px 25px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(4px);
+      opacity: 0; /* 초기 상태에서 투명하게 설정 */
+    }
+
+    /* 전체 호버시 애니메이션 추가 */
+    ul:hover li {
+      animation: bounce 0.5s ease forwards;
+    }
+    /* 애니메이션 정의 */
+    @keyframes bounce {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    /* 각 li 요소에 대해 순차적인 지연 시간 설정 */
+    ul li:nth-child(1) {
+      opacity: 1;
+      animation-delay: 0s;
+    }
+
+    ul li:nth-child(2) {
+      opacity: 1;
+      animation-delay: 0.5s;
+    }
+
+    ul li:nth-child(3) {
+      opacity: 1;
+      animation-delay: 1s;
+    }
+
+    ul li:nth-child(4) {
+      opacity: 1;
+      animation-delay: 2s;
+    }
+    ul li .box {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px;
+      transition: 0.5s;
+    }
+    ul li:hover .box {
+      transform: translateX(-50px);
+    }
+
+    ul li .box img {
+      max-width: 70px;
+      border-radius: 5px;
+    }
+
+    ul li .content {
+      width: 100%;
+      cursor: pointer;
+    }
+    ul li .content h4 {
+      font-weight: 600;
+      color: #aaa;
+      transition: 0.5s;
+    }
+    ul li .content p {
+      position: relative;
+      width: 100%;
+      line-height: 1em;
+      color: #aaa;
+      transition: 0.5s;
+    }
+    ul li .content p span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #aaa;
+      transition: 0.5s;
+      font-size: 0.75em;
+    }
+    ul li:hover .content h4,
+    ul li:hover .content p,
+    ul li:hover .content p span {
+      color: #fff;
+    }
+
+    /* 모바일 화면 */
+    @media (max-width: 767px) {
+    }
+
+    ul li.animate {
+      animation: bounce 0.5s ease forwards;
+    }
+
+    /* 기존 애니메이션 정의 */
+    @keyframes bounce {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+  </style>
+  <body>
+    <section>
+      <ul>
+        <li>
+          <div class="box">
+            <img
+              src="https://images.unsplash.com/photo-1446889727648-8c23e3039b24?q=80&w=1849&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+            <div class="content">
+              <h4>point.01</h4>
+              <p>liked yourphoto<br /><span>20 apr at 05:40</span></p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="box">
+            <img
+              src="https://images.unsplash.com/photo-1446889727648-8c23e3039b24?q=80&w=1849&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+            <div class="content">
+              <h4>point.01</h4>
+              <p>liked yourphoto<br /><span>20 apr at 05:40</span></p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="box">
+            <img
+              src="https://images.unsplash.com/photo-1446889727648-8c23e3039b24?q=80&w=1849&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+            <div class="content">
+              <h4>point.01</h4>
+              <p>liked yourphoto<br /><span>20 apr at 05:40</span></p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="box">
+            <img
+              src="https://images.unsplash.com/photo-1446889727648-8c23e3039b24?q=80&w=1849&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+            <div class="content">
+              <h4>point.01</h4>
+              <p>liked yourphoto<br /><span>20 apr at 05:40</span></p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <ul>
+        <li>
+          <div class="box">
+            <img
+              src="https://images.unsplash.com/photo-1446889727648-8c23e3039b24?q=80&w=1849&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+            <div class="content">
+              <h4>point.01</h4>
+              <p>liked yourphoto<br /><span>20 apr at 05:40</span></p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="box">
+            <img
+              src="https://images.unsplash.com/photo-1446889727648-8c23e3039b24?q=80&w=1849&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+            <div class="content">
+              <h4>point.01</h4>
+              <p>liked yourphoto<br /><span>20 apr at 05:40</span></p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="box">
+            <img
+              src="https://images.unsplash.com/photo-1446889727648-8c23e3039b24?q=80&w=1849&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+            <div class="content">
+              <h4>point.01</h4>
+              <p>liked yourphoto<br /><span>20 apr at 05:40</span></p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="box">
+            <img
+              src="https://images.unsplash.com/photo-1446889727648-8c23e3039b24?q=80&w=1849&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+            <div class="content">
+              <h4>point.01</h4>
+              <p>liked yourphoto<br /><span>20 apr at 05:40</span></p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <script>
+      // 스크롤 이벤트 핸들러
+      function handleScroll() {
+        const items = document.querySelectorAll("ul li");
+        items.forEach((item) => {
+          const rect = item.getBoundingClientRect();
+          const viewHeight = Math.max(
+            document.documentElement.clientHeight,
+            window.innerHeight
+          );
+
+          if (rect.top <= viewHeight && rect.bottom >= 0) {
+            // 요소가 뷰포트에 들어왔을 때 애니메이션 클래스 추가
+            item.classList.add("animate");
+          } else {
+            // 요소가 뷰포트에서 나갔을 때 애니메이션 클래스 제거
+            item.classList.remove("animate");
+          }
+        });
+      }
+
+      // 스크롤 이벤트 리스너 추가
+      window.addEventListener("scroll", handleScroll);
+
+      // 페이지 로드 시 스크롤 이벤트 핸들러 실행
+      window.addEventListener("load", handleScroll);
+    </script>
+  </body>
+</html>
