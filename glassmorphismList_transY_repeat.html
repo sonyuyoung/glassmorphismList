@@ -7,11 +7,13 @@
   </head>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     section {
       font-family: "Noto Sans KR", sans-serif;
       display: flex;
@@ -27,11 +29,10 @@
       perspective: 500px;
       display: flex;
       flex-direction: column;
-      gap: 0;
-      transition: 0.5s;
       gap: 30px;
     }
 
+    /* 각 li 요소에 대한 애니메이션 설정 */
     ul li {
       position: relative;
       list-style: none;
@@ -43,13 +44,9 @@
       transition: 0.5s;
       box-shadow: 0 -15px 25px rgba(0, 0, 0, 0.25);
       backdrop-filter: blur(4px);
-      opacity: 0; /* 초기 상태에서 투명하게 설정 */
+      animation: bounce 1s ease forwards; /* 애니메이션을 한번만 실행하도록 설정 */
     }
 
-    /* 전체 호버시 애니메이션 추가 */
-    ul:hover li {
-      animation: bounce 4s ease forwards; /* 전체 애니메이션 지속 시간을 4초로 설정 */
-    }
     /* 애니메이션 정의 */
     @keyframes bounce {
       0% {
@@ -62,30 +59,24 @@
         transform: translateY(0px);
       }
     }
-    ul li.animate {
-      animation: bounce 0.5s ease forwards;
-    }
 
     /* 각 li 요소에 대해 순차적인 지연 시간 설정 */
     ul li:nth-child(1) {
-      opacity: 1;
       animation-delay: 0s;
     }
 
     ul li:nth-child(2) {
-      opacity: 1;
       animation-delay: 0.5s;
     }
 
     ul li:nth-child(3) {
-      opacity: 1;
       animation-delay: 1s;
     }
 
     ul li:nth-child(4) {
-      opacity: 1;
       animation-delay: 1.5s;
     }
+
     ul li .box {
       display: flex;
       justify-content: flex-start;
@@ -93,6 +84,7 @@
       gap: 20px;
       transition: 0.5s;
     }
+
     ul li:hover .box {
       transform: translateX(-50px);
     }
@@ -106,11 +98,13 @@
       width: 100%;
       cursor: pointer;
     }
+
     ul li .content h4 {
       font-weight: 600;
       color: #aaa;
       transition: 0.5s;
     }
+
     ul li .content p {
       position: relative;
       width: 100%;
@@ -118,6 +112,7 @@
       color: #aaa;
       transition: 0.5s;
     }
+
     ul li .content p span {
       position: absolute;
       top: 0;
@@ -126,6 +121,7 @@
       transition: 0.5s;
       font-size: 0.75em;
     }
+
     ul li:hover .content h4,
     ul li:hover .content p,
     ul li:hover .content p span {
@@ -241,41 +237,37 @@
         </li>
       </ul>
     </section>
-
     <script>
-      // 스크롤 이벤트 핸들러
-      // 스크롤 이벤트 핸들러
-      function handleScroll() {
-        // 모든 <ul> 내부의 <li> 요소를 선택합니다.
-        const items = document.querySelectorAll("ul li");
+      document.addEventListener("DOMContentLoaded", () => {
+        const ul = document.querySelectorAll("ul");
+        let totalLi = 0;
+        let liElements = [];
 
-        // 각 <li> 요소에 대해 반복 작업을 수행합니다.
-        items.forEach((item) => {
-          // <li> 요소의 위치와 크기를 가져옵니다.
-          const rect = item.getBoundingClientRect();
-
-          // 현재 뷰포트의 높이를 가져옵니다. (document.documentElement.clientHeight 또는 window.innerHeight 중 더 큰 값을 사용)
-          const viewHeight = Math.max(
-            document.documentElement.clientHeight,
-            window.innerHeight
-          );
-
-          // <li> 요소가 뷰포트에 들어왔는지 확인합니다.
-          if (rect.top <= viewHeight && rect.bottom >= 100) {
-            // 요소가 뷰포트에 들어왔을 때 애니메이션 클래스 추가
-            item.classList.add("animate");
-          } else {
-            // 요소가 뷰포트에서 나갔을 때 애니메이션 클래스 제거
-            item.classList.remove("animate");
-          }
+        // 모든 ul의 li 요소를 가져옵니다.
+        ul.forEach((list) => {
+          liElements = [...liElements, ...list.querySelectorAll("li")];
         });
-      }
 
-      // 스크롤 이벤트 리스너를 추가하여 사용자가 페이지를 스크롤할 때 handleScroll 함수가 호출되도록 합니다.
-      window.addEventListener("scroll", handleScroll);
+        totalLi = liElements.length;
 
-      // 페이지 로드 시에도 handleScroll 함수가 호출되어 초기 상태를 설정합니다.
-      window.addEventListener("load", handleScroll);
+        // 애니메이션이 끝나면 모든 li의 애니메이션을 다시 시작합니다.
+        function resetAnimation() {
+          liElements.forEach((li, index) => {
+            li.style.animation = "none"; // 애니메이션을 제거
+            li.offsetHeight; // reflow
+            li.style.animation = ""; // 애니메이션을 다시 적용
+          });
+        }
+
+        // 전체 리스트의 애니메이션이 완료된 후 애니메이션을 리셋합니다.
+        liElements.forEach((li, index) => {
+          li.addEventListener("animationend", () => {
+            if (index === totalLi - 1) {
+              setTimeout(resetAnimation, 1000); // 모든 li의 애니메이션이 완료된 후에 리셋
+            }
+          });
+        });
+      });
     </script>
   </body>
 </html>
