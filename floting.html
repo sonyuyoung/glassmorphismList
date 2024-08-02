@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    /* 원래있던코드!  */
+ @media (max-width: 991px) {
+ #s20230525e9b0b12a85a76 {
+     position: fixed;
+     left: 0px;
+     bottom: 0px;
+     z-index: 1040;
+     width: 100%;
+ }
+}
+
+</style>
+
+
+
+
+<body>
+<!-- 플로팅 버튼 컨테이너 -->
+<div class="floating-container">
+ <!-- 플로팅 버튼 -->
+ <div class="floating-button"></div>
+ <!-- 플로팅 아이콘들 -->
+ <span class="float-element">
+   <a href="tel:+8251515-8267" title="전화하기"></a>
+ </span>
+
+ <span class="float-element">
+   <a href="javascript:SITE.openModalMenu('m2023052529e3c766ef891');" title="비용상담"></a> </span>
+
+   <span class="float-element">
+     <a href="https://diatest.imweb.me/Equipment" title="오시는길"></a>
+   </span>
+
+ <span class="float-element">
+   <a href="https://www.youtube.com/@digitalartdental" target="_blank" title="유투브"></a>
+ </span>
+
+
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const floatingButton = document.querySelector(".floating-button");
+      const floatingContainer = document.querySelector(".floating-container");
+
+      floatingButton.addEventListener("click", () => {
+        floatingContainer.classList.toggle("active"); // 클릭 시 active 클래스 토글
+      });
+    });
+  </script>
+</body>
+</html>

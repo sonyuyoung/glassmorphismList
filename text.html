@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  
+    /* 초기 숨기기 설정 */
+    #w2024072302e5429e0250d,
+    #w2024072303ae15ddbd73e,
+    #w202407225b9d9104993d0,
+    #w20240722e20df685bfa95,
+    #w20240722f2edd5104c1bf,
+    #w202407195dffb1f534dd4,
+    #w20240723a2255cb118035 {
+      opacity: 0;
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    /* 애니메이션 설정 */
+    @keyframes slide {
+      from {
+        transform: translateY(200px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes back {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(200px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pic {
+      from {
+        transform: translateY(200px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes picBack {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(200px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(200px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(200px);
+        opacity: 0;
+      }
+    }
+
+    .slide {
+      animation: slide 1s ease-out forwards;
+    }
+
+    .back {
+      animation: back 1s ease-out forwards;
+    }
+
+    .pic {
+      animation: pic 1s ease-out forwards;
+    }
+
+    .picBack {
+      animation: picBack 1s ease-out forwards;
+    }
+
+    .slideUp {
+      animation: slideUp 1s ease-out forwards;
+    }
+
+    .slideDown {
+      animation: slideDown 1s ease-out forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    // 모바일 여부를 확인하는 함수
+    function isMobile() {
+      return window.innerWidth <= 768; // 모바일 화면 너비 기준
+    }
+
+    // 텍스트 요소 선택
+    let textElement = document.querySelector("#w202407195dffb1f534dd4");
+
+    // 이미지 요소 선택
+    let picElement = document.querySelector("#w20240722e20df685bfa95");
+    let picElement2 = document.querySelector("#w20240722f2edd5104c1bf");
+    let picElement3 = document.querySelector("#w2024072302e5429e0250d");
+    let picElement4 = document.querySelector("#w2024072303ae15ddbd73e");
+    let picElement5 = document.querySelector("#w20240723a2255cb118035");
+
+    // 스크롤 이벤트 리스너 추가
+    window.addEventListener("scroll", function () {
+      let value = window.scrollY;
+      console.log("scrollY", value);
+
+      if (isMobile()) {
+        // 모바일 화면에서의 애니메이션 처리
+        if (value > 1100) {
+          textElement.classList.remove("slide");
+          textElement.classList.add("back");
+        } else if (value >= 200 && value <= 1100) {
+          textElement.classList.remove("back");
+          textElement.classList.add("slide");
+        } else {
+          textElement.classList.remove("slide", "back");
+          textElement.style.opacity = 0; // 다시 숨기기
+        }
+
+        if (value > 1300) {
+          picElement.classList.remove("pic");
+          picElement.classList.add("picBack");
+        } else if (value >= 500 && value <= 1300) {
+          picElement.classList.remove("picBack");
+          picElement.classList.add("pic");
+        } else {
+          picElement.classList.remove("pic", "picBack");
+          picElement.style.opacity = 0; // 다시 숨기기
+        }
+
+        if (value > 1300) {
+          picElement2.classList.remove("pic");
+          picElement2.classList.add("picBack");
+        } else if (value >= 600 && value <= 1300) {
+          picElement2.classList.remove("picBack");
+          picElement2.classList.add("pic");
+        } else {
+          picElement2.classList.remove("pic", "picBack");
+          picElement2.style.opacity = 0; // 다시 숨기기
+        }
+
+        if (value > 5600) {
+          picElement3.classList.remove("slideUp");
+          picElement3.classList.add("slideDown");
+        } else if (value >= 4700 && value <= 5600) {
+          picElement3.classList.remove("slideDown");
+          picElement3.classList.add("slideUp");
+        } else {
+          picElement3.classList.remove("slideUp", "slideDown");
+          picElement3.style.opacity = 0; // 다시 숨기기
+        }
+
+        if (value > 6200) {
+          picElement4.classList.remove("slideUp");
+          picElement4.classList.add("slideDown");
+        } else if (value >= 5200 && value <= 6200) {
+          picElement4.classList.remove("slideDown");
+          picElement4.classList.add("slideUp");
+        } else {
+          picElement4.classList.remove("slideUp", "slideDown");
+          picElement4.style.opacity = 0; // 다시 숨기기
+        }
+
+        if (value > 6800) {
+          picElement5.classList.remove("slideUp");
+          picElement5.classList.add("slideDown");
+        } else if (value >= 5800 && value <= 6800) {
+          picElement5.classList.remove("slideDown");
+          picElement5.classList.add("slideUp");
+        } else {
+          picElement5.classList.remove("slideUp", "slideDown");
+          picElement5.style.opacity = 0; // 다시 숨기기
+        }
+
+      } else {
+        // 데스크톱 화면에서의 애니메이션 처리
+        if (value > 1300) {
+          textElement.classList.remove("slide");
+          textElement.classList.add("back");
+        } else if (value >= 350 && value <= 1300) {
+          textElement.classList.remove("back");
+          textElement.classList.add("slide");
+        } else {
+          textElement.classList.remove("slide", "back");
+          textElement.style.opacity = 0; // 다시 숨기기
+        }
+
+        if (value > 1700) {
+          picElement.classList.remove("pic");
+          picElement.classList.add("picBack");
+        } else if (value >= 500 && value <= 1700) {
+          picElement.classList.remove("picBack");
+          picElement.classList.add("pic");
+        } else {
+          picElement.classList.remove("pic", "picBack");
+          picElement.style.opacity = 0; // 다시 숨기기
+        }
+
+        if (value > 2000) {
+          picElement2.classList.remove("pic");
+          picElement2.classList.add("picBack");
+        } else if (value >= 550 && value <= 2000) {
+          picElement2.classList.remove("picBack");
+          picElement2.classList.add("pic");
+        } else {
+          picElement2.classList.remove("pic", "picBack");
+          picElement2.style.opacity = 0; // 다시 숨기기
+        }
+
+        if (value > 6800) {
+          picElement3.classList.remove("slideUp");
+          picElement3.classList.add("slideDown");
+        } else if (value > 5700 && value <= 6800) {
+          picElement3.classList.remove("slideDown");
+          picElement3.classList.add("slideUp");
+        } else {
+          picElement3.classList.remove("slideUp", "slideDown");
+          picElement3.style.opacity = 0; // 다시 숨기기
+        }
+
+        if (value > 8000) {
+          picElement4.classList.remove("slideUp");
+          picElement4.classList.add("slideDown");
+        } else if (value > 6900 && value <= 8000) {
+          picElement4.classList.remove("slideDown");
+          picElement4.classList.add("slideUp");
+        } else {
+          picElement4.classList.remove("slideUp", "slideDown");
+          picElement4.style.opacity = 0; // 다시 숨기기
+        }
+
+        if (value > 8900) {
+          picElement5.classList.remove("slideUp");
+          picElement5.classList.add("slideDown");
+        } else if (value > 7600 && value <= 8900) {
+          picElement5.classList.remove("slideDown");
+          picElement5.classList.add("slideUp");
+        } else {
+          picElement5.classList.remove("slideUp", "slideDown");
+          picElement5.style.opacity = 0; // 다시 숨기기
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Before After</title>
+    <style>
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+      
+        .slider_cover {
+    display: flex; /* Flexbox를 사용하여 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    min-height: 100vh; /* 화면 전체 높이 */
+    background-color: black;
+}
+       .slider_cover  img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .slider_cover main {
+            margin: 40px 40px 0 40px;
+    display: grid;
+    place-items: center; /* 중앙 정렬 */
+    width: 100%; /* 전체 너비 */
+    max-width: 750px; /* 최대 너비 설정 */
+}
+
+        .slider_cover .container {
+  
+            position: relative;
+            overflow: hidden;
+            --position: 50%;
+            width: 100%;
+            max-width: 750px; /* 최대 너비 설정 */
+            aspect-ratio: 5 / 3.8; /* 비율 설정 (750x450의 비율) */
+            border-bottom: #fff solid 1px;
+        }
+
+        .slider_cover  .image-container {
+            position: absolute; /* Allow positioning inside container */
+            top: 0; /* Align to top of container */
+            left: 0; /* Align to left of container */
+            right: 0; /* Align to right of container */
+            bottom: 0; /* Align to bottom of container */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80%; /* Set height to 80% of container */
+            width: 100%; /* Full width of container */
+        }
+
+        .slider_cover .slider-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: left;
+        }
+
+        .slider_cover  .image-before {
+            position: absolute;
+            inset: 0;
+            width: var(--position);
+      
+        }
+
+        .slider_cover .slider {
+            position: absolute;
+            inset: 0;
+            cursor: pointer;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slider_cover  .slider:focus-visible ~ .slider-button {
+           
+            outline-offset: 3px;
+        }
+
+        .slider_cover .slider-line {
+            position: absolute;
+            inset: 0;
+            width: 0.2rem;
+            height: 90%;
+            background-color: #fff;
+            left: var(--position);
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        .slider_cover   .slider-button {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-image: url('https://cdn.imweb.me/upload/S2021020460b0ef649f001/68fd9f3560798.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            bottom: 60px; /* Place button at the bottom */
+            left: var(--position);
+            transform: translate(-50%, 50%); /* Adjust button to be on top of slider */
+            pointer-events: none;
+            background-color: #eee;
+            border-radius: 50px;
+            z-index: 9; /* 버튼이 슬라이더 라인보다 위에 표시되도록 설정합니다 */
+        }
+
+  
+    </style>
+</head>
+<body>
+    <div class="slider_cover">
+    <main>
+        <div class="container">
+            <div class="image-container">
+                <img class="image-before slider-image" src="https://cdn.imweb.me/upload/S2021020460b0ef649f001/a685e17ad412d.jpg" alt="color photo" />
+                <img class="image-after slider-image" src="https://cdn.imweb.me/upload/S2021020460b0ef649f001/1fc1b1d369422.jpg" alt="black and white" />
+            </div>
+            <input type="range" min="0" max="100" value="50" aria-label="Percentage of before photo shown" class="slider" />
+            <div class="slider-line" aria-hidden="true"></div>
+            <div class="slider-button" aria-hidden="true"></div>
+        </div>
+ <p class="txt">버튼을 좌우로 움직여 주세요 </p>
+    </main>
+</div>
+    <script>
+        const container = document.querySelector('.container');
+        document.querySelector('.slider').addEventListener('input', (e) => {
+            container.style.setProperty('--position', `${e.target.value}%`);
+        });
+    </script>
+</body>
+</html>

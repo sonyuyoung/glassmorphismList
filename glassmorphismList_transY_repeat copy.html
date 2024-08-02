@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  section {
+    font-family: "Noto Sans KR", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #0f222f;
+  }
+
+  ul {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  /* 각 li 요소에 대한 애니메이션 설정 */
+  ul li {
+    position: relative;
+    list-style: none;
+    width: 600px;
+    height: 200px;
+
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: 0.5s;
+    box-shadow: 0 -15px 25px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    animation: bounce 1s ease forwards;
+
+  }
+
+  /* 애니메이션 정의 */
+  @keyframes bounce {
+    0% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  /* 각 li 요소에 대해 순차적인 지연 시간 설정 */
+  ul li:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  ul li:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+
+  ul li:nth-child(3) {
+    animation-delay: 1s;
+  }
+
+  ul li:nth-child(4) {
+    animation-delay: 1.5s;
+  }
+
+  ul li .point_box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    transition: 0.5s;
+  }
+
+
+
+  ul li .point_box .point {
+    width: 140px;
+    height: 100px;
+    border-radius: 5px 0px 0px 5px;
+    background-color: #3772ED;
+    display: flex;
+    /* Flexbox를 사용 */
+    justify-content: center;
+    /* 수평 중앙 정렬 */
+    align-items: center;
+    /* 수직 중앙 정렬 */
+    font-size: 16px;
+    /* 폰트 크기 조절 (필요시) */
+    font-weight: bold;
+    /* 폰트 두께 조절 (필요시) */
+    color: #fff;
+
+
+  }
+
+  ul li .content {
+    width: 100%;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+  ul li .content .title {
+    position: relative;
+    width: 100%;
+    line-height: 1.2em;
+    color: #aaa;
+    transition: 0.5s;
+    padding-right: 30px;
+    font-size: 24px;
+  }
+
+
+  ul li:hover .content .title,
+  ul li:hover .content p span {
+    color: #fff;
+  }
+
+  /* 모바일 화면 */
+  @media (max-width: 767px) {}
+</style>
+
+<body>
+  <section>
+    <ul>
+      <li>
+        <div class="point_box">
+          <div class="point">1단계</div>
+          <div class="content">
+            <p class="title">체계적인 당뇨 임플란트 시술이 가능한 치과에서 철저한 검사 과정을 거칩니다.
+              <br>(혈당 수치 및 골밀도 파악)
+            </p>
+
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="point_box">
+          <div class="point">2단계</div>
+          <div class="content">
+            <p class="title">임플란트 전 식이요법과 약물요법 병행을 통해 수술을 받으실 수 있는 상태로 몸 관리를 하는 것이 중요합니다. 당뇨가 있으신 분들은 당뇨와 임플란트 같이 치료하고
+              관리하는 치과에서 치료받으시는 것이 좋습니다.</p>
+
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="point_box">
+          <div class="point">3단계</div>
+          <div class="content">
+            <p class="title">당뇨가 있으신 경우 잇몸 상처가 잘 낫지 않아 감염 우려가 있고 골밀도가 낮아 임플란트가 어렵기 때문에 되도록 잇몸조직 손상이 적은 시술법을 선택하여 임플란트를
+              시술합니다. </p>
+
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="point_box">
+          <div class="point">4단계</div>
+          <div class="content">
+            <p class="title">지속적인 예방관리를 통해서 시술받으신 임플란트를 건강하게 사용하실 수 있도록 합니다.</p>
+
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const ul = document.querySelectorAll("ul");
+      let totalLi = 0;
+      let liElements = [];
+
+      // 모든 ul의 li 요소를 가져옵니다.
+      ul.forEach((list) => {
+        liElements = [...liElements, ...list.querySelectorAll("li")];
+      });
+
+      totalLi = liElements.length;
+
+      // 애니메이션이 끝나면 모든 li의 애니메이션을 다시 시작합니다.
+      function resetAnimation() {
+        liElements.forEach((li, index) => {
+          li.style.animation = "none"; // 애니메이션을 제거
+          li.offsetHeight; // reflow
+          li.style.animation = ""; // 애니메이션을 다시 적용
+        });
+      }
+
+      // 전체 리스트의 애니메이션이 완료된 후 애니메이션을 리셋합니다.
+      liElements.forEach((li, index) => {
+        li.addEventListener("animationend", () => {
+          if (index === totalLi - 1) {
+            setTimeout(resetAnimation, 1000); // 모든 li의 애니메이션이 완료된 후에 리셋
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

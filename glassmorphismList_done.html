@@ -1,173 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: "Noto Sans KR", sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #0f222f;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .diabetes_reason {
+    font-family: "Noto Sans KR", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-color: #0f222f; */
+    background-color: #3772ED;
+
+  }
+
+  .diabetes_reason ul {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: 0.5s;
+  }
+
+  /* 박스클릭하면 전체 갭*/
+  .diabetes_reason ul:hover {
+    gap: 30px;
+  }
+
+  .diabetes_reason ul li {
+    position: relative;
+    list-style: none;
+    width: 520px;
+    height: 110px;
+    padding: 15px 20px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.5);
+    transition: 0.5s;
+    box-shadow: 0 -15px 25px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+  }
+
+  /* 카드 돌아가기 */
+  .diabetes_reason ul li:nth-child(1) {
+    transform: translateZ(-75px) translate(-80px, -40px) rotate(-15deg);
+  }
+
+  .diabetes_reason ul li:nth-child(2) {
+    transform: translateZ(80px) translate(50px, 20px) rotate(5deg);
+  }
+
+  .diabetes_reason ul li:nth-child(3) {
+    transform: translateZ(75px) translate(0, -30px) rotate(-25deg);
+  }
+
+  .diabetes_reason ul li:nth-child(4) {
+    transform: translateZ(20px) translate(-100px, -25px) rotate(15deg);
+  }
+
+  /* 전체 호버시 라인정렬  */
+  .diabetes_reason ul:hover li {
+    transform: translateZ(0px) translate(0px, 0px) rotate(0deg);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+  }
+
+  .diabetes_reason ul li .box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    transition: 0.5s;
+
+
+  }
+
+  .diabetes_reason ul li:hover .box {
+    transform: translateX(-50px);
+  }
+
+  .diabetes_reason ul li .box img {
+    max-width: 80px;
+    border-radius: 5px;
+  }
+
+  .diabetes_reason ul li .content {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .diabetes_reason ul li .content .txt1 {
+
+    color: #3772ED;
+    transition: 0.5s;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .diabetes_reason ul li .content p {
+    position: relative;
+    width: 100%;
+    line-height: 1em;
+    color: #fff;
+    transition: 0.5s;
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  .diabetes_reason ul li .content p span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    transition: 0.5s;
+    font-size: 0.75em;
+  }
+
+  .diabetes_reason ul li:hover .content p,
+  .diabetes_reason ul li:hover .content p,
+  .diabetes_reason ul li:hover .content p span {
+    color: #424242;
+  }
+
+  /* 모바일 화면 */
+  @media (max-width: 767px) {
+
+    .diabetes_reason ul li {
+      width: 300px;
+      height: 80px;
+      padding: 10px 15px 90px 10px;
     }
 
-    ul {
-      position: relative;
-      transform-style: preserve-3d;
-      perspective: 500px;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      transition: 0.5s;
+    .diabetes_reason ul li:nth-child(1) {
+        padding: 10px 15px 90px 10px;
     }
-    /* 박스클릭하면 전체 갭*/
-    ul:hover {
-      gap: 30px;
+    .diabetes_reason ul li:nth-child(2) {
+        padding: 10px 15px 90px 10px;
     }
-
-    ul li {
-      position: relative;
-      list-style: none;
-      width: 450px;
-      height: 100px;
-      padding: 15px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.1);
-      transition: 0.5s;
-      box-shadow: 0 -15px 25px rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(4px);
+    .diabetes_reason ul li:nth-child(3) {
+        padding: 10px 15px 90px 10px;
     }
-    /* 카드 돌아가기 */
-    ul li:nth-child(1) {
-      transform: translateZ(-75px) translate(-80px, -40px) rotate(-15deg);
+    .diabetes_reason ul li:nth-child(4) {
+        padding: 10px 15px 90px 10px;
     }
 
-    ul li:nth-child(2) {
-      transform: translateZ(80px) translate(50px, 20px) rotate(5deg);
-    }
-    ul li:nth-child(3) {
-      transform: translateZ(75px) translate(0, -30px) rotate(-25deg);
+    .diabetes_reason ul li:nth-child(5) {
+        padding: 10px 15px 90px 10px;
     }
 
-    ul li:nth-child(4) {
-      transform: translateZ(20px) translate(-100px, -25px) rotate(15deg);
+
+    .diabetes_reason ul li .content .txt1 {
+      color: #3772ED;
+      font-size: 18px;
     }
-    /* 전체 호버시 라인정렬  */
-    ul:hover li {
-      transform: translateZ(0px) translate(0px, 0px) rotate(0deg);
-      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+    .diabetes_reason ul li .content p {
+      font-size: 18px;
     }
 
-    ul li .box {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 20px;
-      transition: 0.5s;
+    .diabetes_reason ul li .box {
+      gap: 15px;
     }
-    ul li:hover .box {
-      transform: translateX(-50px);
-    }
+  }
 
-    ul li .box img {
-      max-width: 70px;
-      border-radius: 5px;
-    }
+  /* 모바일 화면 */
+@media (max-width: 479px) {
+  .diabetes_reason ul{margin-right: 35px;}
+  .diabetes_reason ul li {
+      width: 300px;
+      height: 80px;
+      padding: 10px 15px 90px 10px;
+   cursor: pointer; 
+  }
+}
+.line{
+  background-color: #fff;
+  width: 1px;
+  height: 100px;
+}
+</style>
 
-    ul li .content {
-      width: 100%;
-      cursor: pointer;
-    }
-    ul li .content h4 {
-      font-weight: 600;
-      color: #aaa;
-      transition: 0.5s;
-    }
-    ul li .content p {
-      position: relative;
-      width: 100%;
-      line-height: 1em;
-      color: #aaa;
-      transition: 0.5s;
-    }
-    ul li .content p span {
-      position: absolute;
-      top: 0;
-      right: 0;
-      color: #aaa;
-      transition: 0.5s;
-      font-size: 0.75em;
-    }
-    ul li:hover .content h4,
-    ul li:hover .content p,
-    ul li:hover .content p span {
-      color: #fff;
-    }
-
-    /* 모바일 화면 */
-    @media (max-width: 767px) {
-    }
-  </style>
-  <body>
-    <ul>
-      <li>
-        <div class="box">
-          <img
-            src="https://images.unsplash.com/photo-1446889727648-8c23e3039b24?q=80&w=1849&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-          />
-          <div class="content">
-            <h4>point.01</h4>
-            <p>liked yourphoto<br /><span>20 apr at 05:40</span></p>
-          </div>
+<body>
+<div class="diabetes_reason">
+  <p class="line"></p>
+  <ul>
+    <li>
+      <div class="box">
+        <img src="	https://cdn.imweb.me/upload/S2021020460b0ef649f001/db46ee0279f91.png" alt="" />
+        <div class="content">
+          <p class="txt1">01.</p>
+          <p>치료 시 회복이 느리다.<br /><span></span></p>
         </div>
-      </li>
-      <li>
-        <div class="box">
-          <img
-            src="https://images.unsplash.com/photo-1446889727648-8c23e3039b24?q=80&w=1849&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-          />
-          <div class="content">
-            <h4>point.01</h4>
-            <p>liked yourphoto<br /><span>20 apr at 05:40</span></p>
-          </div>
+      </div>
+    </li>
+    <li>
+      <div class="box">
+        <img src="https://cdn.imweb.me/upload/S2021020460b0ef649f001/6bf3e85f0f312.png" />
+        <div class="content">
+          <p class="txt1">02.</p>
+          <p>치료 시 출혈 가능성이 높다.<br /><span></span></p>
         </div>
-      </li>
-      <li>
-        <div class="box">
-          <img
-            src="https://images.unsplash.com/photo-1446889727648-8c23e3039b24?q=80&w=1849&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-          />
-          <div class="content">
-            <h4>point.01</h4>
-            <p>liked yourphoto<br /><span>20 apr at 05:40</span></p>
-          </div>
+      </div>
+    </li>
+    <li>
+      <div class="box">
+        <img src="https://cdn.imweb.me/upload/S2021020460b0ef649f001/2c785160b8659.png" alt="" />
+        <div class="content">
+          <p class="txt1">03.</p>
+          <p>백혈구 기능저하로 치주질환 재발이 쉽다.<br /><span></span></p>
         </div>
-      </li>
-      <li>
-        <div class="box">
-          <img
-            src="https://images.unsplash.com/photo-1446889727648-8c23e3039b24?q=80&w=1849&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-          />
-          <div class="content">
-            <h4>point.01</h4>
-            <p>liked yourphoto<br /><span>20 apr at 05:40</span></p>
-          </div>
+      </div>
+    </li>
+    <li>
+      <div class="box">
+        <img src="	https://cdn.imweb.me/upload/S2021020460b0ef649f001/db27b104b1bfa.png" alt="" />
+        <div class="content">
+          <p class="txt1">04.</p>
+          <p>저혈당,고혈당 등의 쇼크가 올 수 있다.<br /><span></span></p>
         </div>
-      </li>
-    </ul>
-  </body>
+      </div>
+    </li>
+    <li>
+      <div class="box">
+        <img src="https://cdn.imweb.me/upload/S2021020460b0ef649f001/d8c13eea2e6e2.png" alt="" />
+        <div class="content">
+          <p class="txt1">05.</p>
+          <p>장기간의 치과 치료를 견디기 힘들다.<br /><span></span></p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+</body>
+
 </html>
