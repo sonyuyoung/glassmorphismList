@@ -1,0 +1,254 @@
+
+    <style>
+	
+	       @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+     
+	   
+           #s20240805f3b4b1848bfeb  {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* 컨테이너를 수평 중앙 정렬 */
+        }
+
+        .container {
+            width: 100%; /* 전체 컨테이너 너비를 화면에 맞게 조정 */
+            max-width: 1500px; /* 최대 너비 설정 */
+            display: flex;
+            flex-direction: column;
+       
+        }
+
+        .MainSection {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .VideoContent {
+            width: 50%;
+            overflow: hidden; /* 비디오가 넘치면 숨기기 */
+            position: relative; /* 자식 요소의 절대 위치 지정에 필요 */
+        
+            justify-content: center;
+        }
+
+        .VideoContent .video-box {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* 비율 유지 */
+            position: relative;
+            overflow: hidden;
+            display: none; /* 기본적으로 비디오 박스를 숨김 */
+        }
+
+        .VideoContent .video-box.active {
+            display: block; /* 활성화된 비디오 박스 표시 */
+        }
+
+        .VideoContent iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .TabMenu {
+            display: flex; /* Flexbox 레이아웃 활성화 */
+            flex-direction: column; /* 세로 방향 레이아웃 사용 */
+            align-items: stretch; /* 자식 요소를 늘려서 높이를 맞추도록 설정 */
+            width: 50%; /* 탭 메뉴의 너비 설정 */
+            box-sizing: border-box; /* 테두리를 포함한 너비와 높이 계산 */
+        
+        }
+
+        .TabMenu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column; /* 세로 방향 레이아웃 사용 */
+        }
+
+        .TabMenu li {
+            padding:5px 10px 5px 10px;
+            cursor: pointer;
+            border-top: 1px solid #ddd;
+            width: 100%;
+            box-sizing: border-box; /* 패딩과 보더를 포함한 너비 계산 */
+        }
+
+        .TabMenu li:first-child {
+            border-top: 0;
+        }
+
+        .TabMenu li.active {
+            background-color: #eee;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            display: flex;
+      
+        }
+
+        .tab-content img {
+            max-width: 200px; /* 이미지의 최대 너비 설정 */
+            max-height: 200px; /* 이미지의 최대 높이 설정 */
+            width: auto; /* 이미지의 너비는 자동으로 조정 */
+            height: auto; /* 이미지의 높이는 자동으로 조정 */
+            object-fit: contain; /* 이미지 비율 유지하면서 컨테이너에 맞추기 */
+            margin-right: 20px;
+        }
+
+        .tab-description {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 세로 정렬을 중앙으로 설정 */
+        }
+
+        .yt_desc {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .yt_desc2 {
+            color: #424242;
+        }
+
+        /* 반응형 디자인: 화면 너비가 1024px 이하일 때 */
+        @media (max-width: 1100px) {
+            .MainSection {
+                flex-direction: column;
+                height: auto; /* 자동 높이 조정 */
+            }
+
+            .VideoContent {
+                width: 100%;
+                height: auto; /* 비디오 높이 자동 조정 */
+            }
+
+            .TabMenu {
+                width: 100%;
+                height: auto; /* 자동 높이 조정 */
+                border-left: none; /* 왼쪽 테두리 제거 */
+                border-top: 2px solid #ddd; /* 위쪽 테두리 설정 */
+            }
+
+            .TabMenu ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .TabMenu li {
+                width: 100%;
+                border-bottom: none;
+                border-top: 1px solid #ddd; /* 위쪽 테두리 설정 */
+            }
+        }
+
+        /* 반응형 디자인: 화면 너비가 768px 이하일 때 (모바일) */
+        @media (max-width: 500px) {
+            .MainSection {
+                flex-direction: column;
+                height: auto; /* 자동 높이 조정 */
+            }
+
+            .VideoContent {
+                width: 100%;
+                height: auto; /* 비디오 높이 자동 조정 */
+            }
+
+            .TabMenu {
+                width: 100%;
+                height: auto; /* 자동 높이 조정 */
+                border-left: none; /* 왼쪽 테두리 제거 */
+                border-top: 2px solid #ddd; /* 위쪽 테두리 설정 */
+            }
+
+            .TabMenu ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .TabMenu li {
+                width: 100%;
+                border-bottom: none;
+                border-top: 1px solid #ddd; /* 위쪽 테두리 설정 */
+            }
+        
+		         .tab-content img {
+            max-width: 100px;
+            height: 60px;
+  
+                
+        }
+
+        }
+    </style>
+
+<body>
+    <div class="container">
+        <section class="MainSection">
+            <div class="VideoContent">
+                <div class="video-box active" id="video1">
+                    <iframe src="https://www.youtube.com/embed/dULwATfLaGs?si=lLggPQRIKBwp1uGy" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="video-box" id="video2">
+                    <iframe src="https://www.youtube.com/embed/sxEIHxJcEC4?si=FXYTpdaTi--6Ngx2" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="video-box" id="video3">
+                    <iframe src="https://www.youtube.com/embed/k5jsTbVSdtc?si=gXICl4EpqEK4hMIw" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="TabMenu">
+                <ul>
+                    <li class="tab-button active" onclick="showTab(0)">
+                        <div class="tab-content">
+                            <img src="https://cdn.imweb.me/upload/S2021020460b0ef649f001/40a3fe565cf82.png" alt="">
+                            <div class="tab-description">
+                                <p class="yt_desc">[부산임플란트] 잇몸뼈가 없어 임플란트 불가판정 ... 올온엑스 최소식립 전체임플란트 환자 치료사례 소개 (임플란트 가능, 고난도임플란트)</p>
+                                <p class="yt_desc2">소개란</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="tab-button" onclick="showTab(1)">
+                        <div class="tab-content">
+                            <img src="https://cdn.imweb.me/upload/S2021020460b0ef649f001/569348d722e7d.png" alt="">
+                            <div class="tab-description">
+                                <p class="yt_desc">[부산임플란트] 유독 치과가 무서웠던 아빠가 치과공포증을 극복하고 전체임플란트 후 젊음을 다시 되찾은 사연은?! (치과공포증이 있다면 필수시청!!!!)</p>
+                                <p class="yt_desc2">소개란</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="tab-button" onclick="showTab(2)">
+                        <div class="tab-content">
+                            <img src="https://cdn.imweb.me/upload/S2021020460b0ef649f001/2f735470c26ef.png" alt="">
+                            <div class="tab-description">
+                                <p class="yt_desc">[부산임플란트] 녹아내린 잇몸뼈, 뼈이식 없이 올온엑스 임플란트로 새로운 치아를 갖게 된 환자분의 사연은 ?!</p>
+                                <p class="yt_desc2">소개란</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <script>
+        function showTab(index) {
+            var videoBoxes = document.querySelectorAll('.video-box');
+            var tabButtons = document.querySelectorAll('.tab-button');
+            videoBoxes.forEach(box => box.classList.remove('active'));
+            tabButtons.forEach(button => button.classList.remove('active'));
+
+            document.querySelector(`#video${index + 1}`).classList.add('active');
+            tabButtons[index].classList.add('active');
+        }
+
+        // Initialize first tab as active
+        showTab(0);
+    </script>
+</body>

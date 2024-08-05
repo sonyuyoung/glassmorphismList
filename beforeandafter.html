@@ -23,20 +23,18 @@
             align-items: center;
             /* 수직 중앙 정렬 */
 
-            /* 화면 전체 높이 */
-            margin: 40px;
-
+       
         }
 
         .slider_cover img {
             display: block;
             max-width: 100%;
-
+         
         }
 
         .slider_cover main {
 
-            /* margin: 40px 40px 0 40px;*/
+           /* margin: 40px 40px 0 40px;*/
             display: grid;
             place-items: center;
             /* 중앙 정렬 */
@@ -44,8 +42,7 @@
             /* 전체 너비 */
             max-width: 750px;
             /* 최대 너비 설정 */
-
-
+         
         }
 
         .slider_cover .container {
@@ -56,10 +53,10 @@
             width: 100%;
             max-width: 750px;
             /* 최대 너비 설정 */
-
-            aspect-ratio: 5 /3;
+            height: 450px;
+            /*aspect-ratio: 5 / 3.8; 
             /* 비율 설정 (750x450의 비율) */
-
+     
         }
 
         .slider_cover .image-container {
@@ -105,7 +102,7 @@
             height: 100%;
         }
 
-        /*   .slider_cover .slider:focus-visible~.slider-button {
+     /*   .slider_cover .slider:focus-visible~.slider-button {
 
             outline-offset: 3px;
         }
@@ -129,20 +126,19 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            bottom: 45%;
+            bottom: 220px;
             /* Place button at the bottom */
             left: var(--position);
             transform: translate(-50%, 50%);
             /* Adjust button to be on top of slider */
             pointer-events: none;
             /* background-color: #8f7d71; */
-            background-color: #8f7d71;
+            background-color: #8f7d71; 
             border-radius: 50px;
             z-index: 9;
             border: 2px solid #fff;
             /* 버튼이 슬라이더 라인보다 위에 표시되도록 설정합니다 */
         }
-
     </style>
 </head>
 
@@ -162,17 +158,17 @@
                 <div class="slider-line" aria-hidden="true"></div>
                 <div class="slider-button" aria-hidden="true"></div>
             </div>
-            <p class="txt">버튼을 좌우로 움직여 주세요 </p>
+      
         </main>
     </div>
     <script>
         const container = document.querySelector('.slider_cover .container');
         const slider = document.querySelector('.slider_cover .slider');
-
+        
         slider.addEventListener('input', (e) => {
             container.style.setProperty('--position', `${e.target.value}%`);
         });
-    </script>
+            </script>
 </body>
 
 </html>
