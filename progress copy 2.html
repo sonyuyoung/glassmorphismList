@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implant Re-Surgery Causes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Noto Sans KR", sans-serif;
+            background-color: #e3edf7;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 1000px;
+            flex-wrap: wrap;
+        }
+        .chart {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 10px;
+        }
+        .outer, .inner {
+            position: absolute;
+            border-radius: 50%;
+        }
+        .outer {
+            height: 160px;
+            width: 160px;
+            padding: 20px;
+            box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), 
+                        -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+        }
+        .inner {
+            height: 120px;
+            width: 120px;
+            box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2), 
+                        inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+                        -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+                        0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+                        0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .chart svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .chart .label {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+            text-align: center;
+            z-index: 1;
+        }
+        .circle-bg {
+            fill: none;
+            stroke-width: 20;
+            stroke: #e0e0e0;
+        }
+        .circle {
+            fill: none;
+            stroke-width: 20;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1s;
+        }
+        .circle[data-percentage="37"] {
+            stroke: url(#gradient-1);
+        }
+        .circle[data-percentage="26"] {
+            stroke: url(#gradient-2);
+        }
+        .circle[data-percentage="9"] {
+            stroke: url(#gradient-3);
+        }
+        .circle[data-percentage="9"] {
+            stroke: url(#gradient-4);
+        }
+        .circle[data-percentage="9"] {
+            stroke: url(#gradient-5);
+        }
+    </style>
+</head>
+<body>
+    <h1>Implant Re-Surgery Causes</h1>
+    <div class="chart-container">
+        <!-- 임플란트 주의염 -->
+        <div class="chart">
+            <div class="outer">
+                <div class="inner">
+                    <svg viewBox="0 0 200 200">
+                        <defs>
+                            <linearGradient id="gradient-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ff7f50"/>
+                                <stop offset="100%" stop-color="#ff6347"/>
+                            </linearGradient>
+                        </defs>
+                        <circle class="circle-bg" cx="100" cy="100" r="80"/>
+                        <circle class="circle" id="circle-1" cx="100" cy="100" r="80" data-percentage="37"/>
+                    </svg>
+                    <div class="label">주의염<br>37%</div>
+                </div>
+            </div>
+        </div>
+        <!-- 픽스쳐 탈락 및 파손 -->
+        <div class="chart">
+            <div class="outer">
+                <div class="inner">
+                    <svg viewBox="0 0 200 200">
+                        <defs>
+                            <linearGradient id="gradient-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00bfff"/>
+                                <stop offset="100%" stop-color="#1e90ff"/>
+                            </linearGradient>
+                        </defs>
+                        <circle class="circle-bg" cx="100" cy="100" r="80"/>
+                        <circle class="circle" id="circle-2" cx="100" cy="100" r="80" data-percentage="26"/>
+                    </svg>
+                    <div class="label">탈락 및 파손<br>26%</div>
+                </div>
+            </div>
+        </div>
+        <!-- 보철물 탈착 및 파손 -->
+        <div class="chart">
+            <div class="outer">
+                <div class="inner">
+                    <svg viewBox="0 0 200 200">
+                        <defs>
+                            <linearGradient id="gradient-3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#32cd32"/>
+                                <stop offset="100%" stop-color="#228b22"/>
+                            </linearGradient>
+                        </defs>
+                        <circle class="circle-bg" cx="100" cy="100" r="80"/>
+                        <circle class="circle" id="circle-3" cx="100" cy="100" r="80" data-percentage="9"/>
+                    </svg>
+                    <div class="label">탈착 및 파손<br>9%</div>
+                </div>
+            </div>
+        </div>
+        <!-- 교합 불편감 -->
+        <div class="chart">
+            <div class="outer">
+                <div class="inner">
+                    <svg viewBox="0 0 200 200">
+                        <defs>
+                            <linearGradient id="gradient-4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#ffeb3b"/>
+                                <stop offset="100%" stop-color="#fbc02d"/>
+                            </linearGradient>
+                        </defs>
+                        <circle class="circle-bg" cx="100" cy="100" r="80"/>
+                        <circle class="circle" id="circle-4" cx="100" cy="100" r="80" data-percentage="9"/>
+                    </svg>
+                    <div class="label">불편감<br>9%</div>
+                </div>
+            </div>
+        </div>
+        <!-- 기타 -->
+        <div class="chart">
+            <div class="outer">
+                <div class="inner">
+                    <svg viewBox="0 0 200 200">
+                        <defs>
+                            <linearGradient id="gradient-5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f44336"/>
+                                <stop offset="100%" stop-color="#c62828"/>
+                            </linearGradient>
+                        </defs>
+                        <circle class="circle-bg" cx="100" cy="100" r="80"/>
+                        <circle class="circle" id="circle-5" cx="100" cy="100" r="80" data-percentage="9"/>
+                    </svg>
+                    <div class="label">기타<br>9%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.circle').forEach(circle => {
+            const percentage = parseFloat(circle.getAttribute('data-percentage'));
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            const offset = circumference - (percentage / 100 * circumference);
+            circle.style.strokeDasharray = circumference;
+            circle.style.strokeDashoffset = offset;
+        });
+    </script>
+</body>
+</html>

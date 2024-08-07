@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Charts</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Noto Sans KR", sans-serif;
+            background-color: #e3edf7;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+               /* 전체 컨테이너 스타일 */
+               .main-container {
+            width: 90%; /* 전체 너비의 90% */
+            max-width: 1200px; /* 최대 너비 설정 */
+            padding: 0 20px; /* 양쪽 여백 */
+            display: flex;
+            justify-content: center; /* 가운데 정렬 */
+        }
+
+        /* 컨테이너 스타일 */
+        .skill-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            max-width: 1000px;
+            /* 컨테이너의 최대 너비 설정 */
+            width: 100%;
+        }
+
+        .large-skills,
+        .small-skills {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* 큰 원 스타일 */
+        .skill.large {
+            position: relative;
+        }
+
+        .outer.large {
+            width: 320px;
+            height: 320px;
+            padding: 35px;
+            box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+                -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+        }
+
+        .inner.large {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+                inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+                -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+                0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+                0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .percentage {
+            font-weight: 800;
+            color: #377eed;
+            font-size: 60px;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            /* 줄 간격 조정 */
+        }
+        .percentage .title_txt {
+            font-size: 24px;
+            color: #555;
+            display: inline-block;
+            font-weight: 500;
+            /* inline-block으로 변경 */
+
+        }
+        .percentage_small {
+            line-height: 1.2;
+            /* 줄 간격 조정 */
+            font-weight: 800;
+            color: #000;
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+     
+
+        .percentage_small .title_txt {
+            font-weight: 600;
+            display: inline-block;
+            color: #555;
+            /* inline-block으로 변경 */
+            font-size: 20px;
+        }
+
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .circle.large {
+            fill: none;
+            stroke-width: 35px;
+            stroke-dasharray: 440;
+            stroke-dashoffset: 440;
+            transition: stroke-dashoffset 1s linear;
+        }
+
+        /* 작은 원 스타일 */
+        .skill.small {
+            width: 230px;
+            height: 230px;
+            position: relative;
+        }
+
+        .outer.small {
+            width: 230px;
+            height: 230px;
+            padding: 30px;
+            box-shadow: 3px 3px 5px -0.5px rgba(0, 0, 0, 0.15),
+                -3px -3px 5px -0.5px rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+        }
+
+        .inner.small {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            box-shadow: inset 2px 2px 3px -0.5px rgba(0, 0, 0, 0.2),
+                inset -2px -2px 3px -0.5px rgba(255, 255, 255, 0.7),
+                -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+                0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+                0px 6px 5px -5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .circle.small {
+            fill: none;
+            stroke-width: 30px;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            transition: stroke-dashoffset 1s linear;
+        }
+        /* 미디어 쿼리: 화면 크기가 768px 이하일 때 스타일 조정 */
+        @media (max-width: 768px) {
+                /* 컨테이너 스타일 */
+                .skill-container {
+          width: 50%;
+        }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+    <div class="skill-container">
+        <div class="large-skills">
+            <!-- Skill 1: 37% -->
+            <div class="skill large">
+                <div class="outer large">
+                    <div class="inner large">
+                        <div id="number-1" class="percentage"><span class="title_txt">임플란트 주의염</span></div>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="320px" height="320px">
+                    <defs>
+                        <linearGradient id="GradientColor1">
+                            <stop offset="0%" stop-color="#00bfff" />
+                            <stop offset="100%" stop-color="#1e90ff" />
+                            <!-- <stop offset="0%" stop-color="#da22ff" />
+                            <stop offset="100%" stop-color="#9733ee" /> -->
+                        </linearGradient>
+                    </defs>
+                    <circle id="circle-1" class="circle large" cx="160" cy="160" r="142" stroke="url(#GradientColor1)"
+                        stroke-linecap="round" />
+                </svg>
+            </div>
+
+            <!-- Skill 2: 26% -->
+            <div class="skill large">
+                <div class="outer large">
+                    <div class="inner large">
+                        <div id="number-2" class="percentage"><span class="title_txt">픽스쳐 탈락 및 파손</span></div>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="320px" height="320px">
+                    <defs>
+                        <linearGradient id="GradientColor2">
+                            <stop offset="0%" stop-color="#00bfff" />
+                            <stop offset="100%" stop-color="#1e90ff" />
+                         
+                        </linearGradient>
+                    </defs>
+                    <circle id="circle-2" class="circle large" cx="160" cy="160" r="142" stroke="url(#GradientColor2)"
+                        stroke-linecap="round" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="small-skills">
+            <!-- Skill 3: 9% -->
+            <div class="skill small">
+                <div class="outer small">
+                    <div class="inner small">
+                        <div id="number-3" class="percentage_small"><span class="title_txt">보철물 탈착,파손</span></div>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="230px" height="230px">
+                    <defs>
+                        <linearGradient id="GradientColor3">
+                            <stop offset="0%" stop-color="#00bfff" />
+                            <stop offset="100%" stop-color="#1e90ff" />
+                        </linearGradient>
+                    </defs>
+                    <circle id="circle-3" class="circle small" cx="115" cy="115" r="100" stroke="url(#GradientColor3)"
+                        stroke-linecap="round" />
+                </svg>
+            </div>
+
+            <!-- Skill 4: 9% -->
+            <div class="skill small">
+                <div class="outer small">
+                    <div class="inner small">
+                        <div id="number-4" class="percentage_small"><span class="title_txt">교합 불편감</span></div>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="230px" height="230px">
+                    <defs>
+                        <linearGradient id="GradientColor4">
+                            <stop offset="0%" stop-color="#00bfff" />
+                            <stop offset="100%" stop-color="#1e90ff" />
+                        </linearGradient>
+                    </defs>
+                    <circle id="circle-4" class="circle small" cx="115" cy="115" r="100" stroke="url(#GradientColor4)"
+                        stroke-linecap="round" />
+                </svg>
+            </div>
+
+            <!-- Skill 5: 9% -->
+            <div class="skill small">
+                <div class="outer small">
+                    <div class="inner small">
+                        <div id="number-5" class="percentage_small"><span class="title_txt">기타</span></div>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="230px" height="230px">
+                    <defs>
+                        <linearGradient id="GradientColor5">
+                            <stop offset="0%" stop-color="#00bfff" />
+                            <stop offset="100%" stop-color="#1e90ff" />
+                        </linearGradient>
+                    </defs>
+                    <circle id="circle-5" class="circle small" cx="115" cy="115" r="100" stroke="url(#GradientColor5)"
+                        stroke-linecap="round" />
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        function animateSkill(circleId, numberId, percentage) {
+            const numberElem = document.getElementById(numberId);
+            const circleElem = document.getElementById(circleId);
+            const radius = circleElem.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+
+            circleElem.style.strokeDasharray = circumference;
+            circleElem.style.strokeDashoffset = circumference;
+
+            setTimeout(() => {
+                circleElem.style.strokeDashoffset = circumference - (percentage / 100 * circumference);
+            }, 100);
+
+            let counter = 0;
+            const interval = setInterval(() => {
+                if (counter >= percentage) {
+                    clearInterval(interval);
+                }
+                numberElem.innerHTML = `${numberElem.innerHTML.split('<br>')[0]}<br>${counter}%`;
+                counter++;
+            }, 20);
+        }
+
+        animateSkill('circle-1', 'number-1', 37);
+        animateSkill('circle-2', 'number-2', 26);
+        animateSkill('circle-3', 'number-3', 9);
+        animateSkill('circle-4', 'number-4', 9);
+        animateSkill('circle-5', 'number-5', 9);
+    </script>
+</body>
+
+</html>
+
+
+<script>
+    // 애니메이션 함수
+    function animateSkill(circleId, numberId, percentage) {
+        const numberElem = document.getElementById(numberId);
+        const circleElem = document.getElementById(circleId);
+        const radius = circleElem.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
+
+        circleElem.style.strokeDasharray = circumference;
+        circleElem.style.strokeDashoffset = circumference;
+
+        setTimeout(() => {
+            circleElem.style.strokeDashoffset = circumference - (percentage / 100 * circumference);
+        }, 100);
+
+        let counter = 0;
+        const interval = setInterval(() => {
+            if (counter >= percentage) {
+                clearInterval(interval);
+            }
+            numberElem.innerHTML = `${numberElem.innerHTML.split('<br>')[0]}<br>${counter}%`;
+            counter++;
+        }, 20);
+    }
+
+    // Intersection Observer 설정
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // 화면에 보일 때 애니메이션 실행
+                animateSkill('circle-1', 'number-1', 37);
+                animateSkill('circle-2', 'number-2', 26);
+                animateSkill('circle-3', 'number-3', 9);
+                animateSkill('circle-4', 'number-4', 9);
+                animateSkill('circle-5', 'number-5', 9);
+
+                // 애니메이션이 실행된 후에는 다시 감지하지 않도록 관찰 해제
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 }); // 50% 이상의 요소가 보일 때 실행
+
+    // 특정 섹션을 관찰하도록 설정
+    const skillSection = document.querySelector('.skill-container');
+    observer.observe(skillSection);
+</script>

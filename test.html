@@ -1,0 +1,125 @@
+<style>
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap; /* 카드들이 가로로 배치되도록 설정 */
+    }
+    
+     .cards2 {
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color:#377eed;
+      width: 400px; /* 기본 카드의 너비 */
+      height: 180px; /* 기본 카드의 높이 */
+      border: 7px solid #fff;
+      border-radius: 50px; /* 원형 모서리 조정 */
+      padding: 20px;
+      overflow: hidden;
+      opacity: 0;
+    transform: translateY(150px) scale(0.8); /* 위치를 좀 더 내리고 크기를 조절 */
+      transition: all 0.5s ease;
+      display: flex;
+      flex-direction: column; /* 카드 내부의 텍스트를 세로로 정렬 */
+      text-align: center;
+      color: #000; /* 텍스트 색상 조정 */
+        margin: 10px;
+    }
+    
+    
+    /* 카드가 활성화될 때의 스타일 */
+      .cards2.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    /* 카드 애니메이션 지연 설정 */
+      .cards2:nth-child(1).active {
+      transition-delay: 0s;
+    }
+    
+    .cards2:nth-child(2).active {
+      transition-delay: 0.1s;
+    }
+    
+    .cards2:nth-child(3).active {
+      transition-delay: 0.2s;
+    }
+    
+    
+    /* 카드 텍스트 스타일 */
+    .cards2 .text-card2 .min_h3 {
+      font-size: 25px; /* 기본 폰트 크기 */
+      font-weight:600;
+      color: #fff;
+    }
+    
+    .cards2 .text-card2 .min_h3_2 {
+      font-size:23px; /* 기본 폰트 크기 */
+      margin: 0;
+      color: #fff;
+      font-weight:400;
+    }
+    
+        </style>
+        
+       <body>
+
+
+ <!-- 비디오 배경 -->
+ <div class="background-video1">
+    <iframe src="https://www.youtube.com/embed/-7fbNH_3XO4?si=Kh531GbZOs0tj4hR&start=233&autoplay=1&mute=1" 
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+      <div class="container reveal">
+        <div class="cards2">
+          <div class="text-card2">
+            <p class="min_h3">전신질환자</p>
+            <p class="min_h3_2">당뇨, 고혈압, 뇌졸중 등의<br> 전신 질환을 가진 환자들.</p>
+          </div>
+        </div>
+        <div class="cards2">
+          <div class="text-card2">
+            <p class="min_h3">항응고제 복용중</p>
+            <p class="min_h3_2">아스피린 등의 항응고제를<br>복용하는 경우</p>
+          </div>
+        </div>
+        <div class="cards2">
+          <div class="text-card2">
+            <p class="min_h3">수술에 대한 공포</p>
+            <p class="min_h3_2">수술에 대한 공포가<br> 심한 분들</p>
+          </div>
+        </div>
+      </div>
+    </body>
+        
+          <script>
+         document.addEventListener("DOMContentLoaded", function() {
+      window.addEventListener("scroll", reveal);
+    
+      function reveal() {
+        var images = document.querySelectorAll(".cards2");
+    
+        var windowHeight = window.innerHeight;
+        var revealPoint = 30;
+    
+        images.forEach(image => {
+          var revealTop = image.getBoundingClientRect().top;
+    
+          if (revealTop < windowHeight - revealPoint) {
+            image.classList.add("active");
+          } else {
+            image.classList.remove("active");
+          }
+        });
+      }
+    });
+    
+        </script>

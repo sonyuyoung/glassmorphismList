@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Charts</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Noto Sans KR", sans-serif;
+            background-color: #e3edf7;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .skill-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 1000px;
+            flex-wrap: wrap;
+        }
+        .skill {
+            width: 160px;
+            height: 160px;
+            position: relative;
+            margin: 10px;
+        }
+        .outer {
+            height: 160px;
+            width: 160px;
+            padding: 20px;
+            box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), 
+                        -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+        }
+        .inner {
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+            box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2), 
+                        inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+                        -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+                        0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+                        0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #number {
+            font-weight: 600;
+            color: #555;
+        }
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .circle {
+            fill: none;
+            stroke-width: 20px;
+            stroke-dasharray: 440; /* Circumference of the circle */
+            stroke-dashoffset: 440; /* Start with full offset */
+            transition: stroke-dashoffset 1s linear; /* Change duration to control speed */
+        }
+        .animate {
+            stroke-dashoffset: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>임플란트 재수술 원인</h1>
+    <div class="skill-container">
+        <!-- Skill 1: 37% -->
+        <div class="skill">
+            <div class="outer">
+                <div class="inner">
+                    <div id="number-1">0%</div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                <defs>
+                    <linearGradient id="GradientColor1">
+                        <stop offset="0%" stop-color="#da22ff"/>
+                        <stop offset="100%" stop-color="#9733ee"/>
+                    </linearGradient>
+                </defs>
+                <circle id="circle-1" class="circle" cx="80" cy="80" r="70" stroke="url(#GradientColor1)" stroke-linecap="round" />
+            </svg>
+        </div>
+
+        <!-- Skill 2: 26% -->
+        <div class="skill">
+            <div class="outer">
+                <div class="inner">
+                    <div id="number-2">0%</div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                <defs>
+                    <linearGradient id="GradientColor2">
+                        <stop offset="0%" stop-color="#00bfff"/>
+                        <stop offset="100%" stop-color="#1e90ff"/>
+                    </linearGradient>
+                </defs>
+                <circle id="circle-2" class="circle" cx="80" cy="80" r="70" stroke="url(#GradientColor2)" stroke-linecap="round" />
+            </svg>
+        </div>
+
+        <!-- Skill 3: 9% -->
+        <div class="skill">
+            <div class="outer">
+                <div class="inner">
+                    <div id="number-3">0%</div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                <defs>
+                    <linearGradient id="GradientColor3">
+                        <stop offset="0%" stop-color="#377EED"/>
+                        <stop offset="100%" stop-color="#228b22"/>
+                    </linearGradient>
+                </defs>
+                <circle id="circle-3" class="circle" cx="80" cy="80" r="70" stroke="url(#GradientColor3)" stroke-linecap="round" />
+            </svg>
+        </div>
+
+        <!-- Skill 4: 9% -->
+        <div class="skill">
+            <div class="outer">
+                <div class="inner">
+                    <div id="number-4">0%</div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                <defs>
+                    <linearGradient id="GradientColor4">
+                        <stop offset="0%" stop-color="#ffeb3b"/>
+                        <stop offset="100%" stop-color="#fbc02d"/>
+                    </linearGradient>
+                </defs>
+                <circle id="circle-4" class="circle" cx="80" cy="80" r="70" stroke="url(#GradientColor4)" stroke-linecap="round" />
+            </svg>
+        </div>
+
+        <!-- Skill 5: 9% -->
+        <div class="skill">
+            <div class="outer">
+                <div class="inner">
+                    <div id="number-5">0%</div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                <defs>
+                    <linearGradient id="GradientColor5">
+                        <stop offset="0%" stop-color="#f44336"/>
+                        <stop offset="100%" stop-color="#c62828"/>
+                    </linearGradient>
+                </defs>
+                <circle id="circle-5" class="circle" cx="80" cy="80" r="70" stroke="url(#GradientColor5)" stroke-linecap="round" />
+            </svg>
+        </div>
+    </div>
+
+    <script>
+        function animateSkill(circleId, numberId, percentage) {
+            const numberElem = document.getElementById(numberId);
+            const circleElem = document.getElementById(circleId);
+            const radius = circleElem.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+
+            circleElem.style.strokeDasharray = circumference;
+            circleElem.style.strokeDashoffset = circumference;
+
+            setTimeout(() => {
+                circleElem.style.strokeDashoffset = circumference - (percentage / 100 * circumference);
+            }, 100); // Slight delay to ensure CSS transition starts after initial setup
+
+            let counter = 0;
+            const interval = setInterval(() => {
+                if (counter >= percentage) {
+                    clearInterval(interval);
+                } else {
+                    counter++;
+                    numberElem.innerHTML = `${counter}%`;
+                }
+            }, 20); // Adjust the interval as needed for smooth animation
+        }
+   // speed 값을 조정하여 애니메이션 속도 조절 (단위: 밀리초)
+   animateSkill('circle-1', 'number-1', 37); // speed = 10ms
+    animateSkill('circle-2', 'number-2', 26);
+    animateSkill('circle-3', 'number-3', 9);
+    animateSkill('circle-4', 'number-4', 9);
+    animateSkill('circle-5', 'number-5', 9);
+    </script>
+</body>
+</html>
